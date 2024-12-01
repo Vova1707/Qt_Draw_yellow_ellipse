@@ -4,12 +4,13 @@ from PyQt6.QtGui import QPainter, QColor
 from PyQt6.QtWidgets import QMainWindow, QApplication
 from PyQt6.QtCore import QPointF
 from PyQt6 import uic
+from UI import Ui_MainWindow
 
 
-class Suprematism(QMainWindow):
+class Suprematism(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('UI.ui', self)
+        self.setupUi(self)
         self.initUI()
 
     def initUI(self):
@@ -26,7 +27,7 @@ class Suprematism(QMainWindow):
 
 
     def draw_ellipse(self, qp):
-        color = QColor(203, 229, 34)
+        color = QColor(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
         x = random.randint(100, 700)
         y = random.randint(100, 700)
         r = random.randint(10, 100)
